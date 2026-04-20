@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection {
+    @apply bg-brand-500/30 text-brand-900 dark:text-brand-100;
+  }
+  /* custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500;
+  }
+}
+
+@layer components {
+  .container-xl {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-20 md:py-28;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
+           bg-slate-100 text-slate-700 dark:bg-slate-800/60 dark:text-slate-300
+           border border-slate-200/60 dark:border-slate-700/50
+           transition-colors hover:border-brand-500/50 hover:text-brand-600 dark:hover:text-brand-400;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium
+           transition-all duration-200 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-brand-500 focus-visible:ring-offset-2
+           dark:focus-visible:ring-offset-slate-950;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700
+           shadow-lg shadow-brand-600/20 hover:shadow-brand-600/40
+           hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn border border-slate-300 dark:border-slate-700
+           hover:bg-slate-100 dark:hover:bg-slate-800
+           hover:border-brand-500 dark:hover:border-brand-500;
+  }
+  .card {
+    @apply bg-white dark:bg-slate-900/60 backdrop-blur
+           border border-slate-200 dark:border-slate-800
+           rounded-2xl p-6 transition-all duration-300;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold mb-4 tracking-tight;
+  }
+  .section-kicker {
+    @apply text-xs font-mono font-semibold uppercase tracking-widest
+           text-brand-600 dark:text-brand-400 mb-3;
+  }
+}
+
+/* noise/grid bg helper */
+.bg-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(100, 116, 139, 0.12) 1px, transparent 0);
+  background-size: 24px 24px;
+}
