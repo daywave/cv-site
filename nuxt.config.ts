@@ -53,7 +53,7 @@ export default defineNuxtConfig({
           content: 'Scalable backends, Flutter apps, clean architecture.',
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     },
   },
 })

@@ -68,7 +68,7 @@ export const useCv = () => {
     {
       company: 'Depfly',
       role: pick({ en: 'Flutter Mobile Developer', es: 'Desarrollador Móvil Flutter' }),
-      period: pick({ en: 'Jul 2024 — Nov 2024', es: 'Jul 2024 — Nov 2024' }),
+      period: pick({ en: 'Jul 2024 — Feb 2025', es: 'Jul 2024 — Feb 2025' }),
       location: pick({ en: 'Remote', es: 'Remoto' }),
       highlights: pick({
         en: [
@@ -101,6 +101,28 @@ export const useCv = () => {
       }),
       tech: ['Vue.js', 'JavaScript', 'Tailwind', 'Scrum'],
     },
+    {
+      company: pick({ en: 'Freelance / Projects', es: 'Freelance / Proyectos' }),
+      role: pick({
+        en: 'Software Developer (Full-Stack & Mobile)',
+        es: 'Desarrollador de Software (Full-Stack & Móvil)',
+      }),
+      period: pick({ en: 'Jan 2023 — Jan 2025', es: 'Ene 2023 — Ene 2025' }),
+      location: pick({ en: 'Remote', es: 'Remoto' }),
+      highlights: pick({
+        en: [
+          'Developed and maintained applications using Flutter, Vue.js and Node.js.',
+          'Built scalable solutions and reduced development time for new features by 40%.',
+          'Collaborated with teams using Scrum methodologies across multiple projects.',
+        ],
+        es: [
+          'Desarrollé y mantuve aplicaciones con Flutter, Vue.js y Node.js.',
+          'Construí soluciones escalables y reduje el tiempo de desarrollo de nuevas features un 40%.',
+          'Colaboré con equipos usando metodologías Scrum en múltiples proyectos.',
+        ],
+      }),
+      tech: ['Flutter', 'Vue.js', 'Node.js', 'Scrum'],
+    },
   ])
 
   const skills = [
@@ -126,7 +148,7 @@ export const useCv = () => {
         es: 'Ing. Sistemas Computacionales',
       }),
       school: 'Universidad Autónoma de Aguascalientes',
-      period: '2020 — 2024',
+      period: pick({ en: 'Graduated Dec 2024', es: 'Graduado Dic 2024' }),
     },
   ])
 
