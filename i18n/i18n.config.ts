@@ -7,6 +7,7 @@ export default defineI18nConfig(() => ({
       nav: {
         about: 'About',
         experience: 'Experience',
+        challenges: 'Challenges',
         skills: 'Skills',
         projects: 'Projects',
         contact: 'Contact',
@@ -22,7 +23,7 @@ export default defineI18nConfig(() => ({
       about: {
         kicker: 'About',
         title: "Engineer by title, problem-solver by practice",
-        p1: 'Software Engineer building scalable backend, web, and enterprise applications with PHP, Python, Java, React and mobile languages.',
+        p1: 'Software Engineer building AI-assisted applications, scalable backend systems, and enterprise solutions with PHP, Python, Java, React and mobile languages.',
         p2: 'I design REST APIs, real-time communication systems and high-concurrency platforms supporting 100k+ users, using Clean Architecture, MVC/MVVM and Agile practices with international teams.',
         p3: "Maintainable code, less technical debt, reliable delivery — every iteration measurably better than the last.",
       },
@@ -39,6 +40,32 @@ export default defineI18nConfig(() => ({
         stacks: 'Core stacks',
         teamLed: 'Devs led as Tech Lead',
       },
+      challenges: {
+        kicker: 'Challenges',
+        title: 'How I approach hard problems',
+        intro: "Throughout my career I've worked on projects where an error isn't just a technical problem — it can directly affect a company's operations or the experience of thousands of users. These are some of the most significant challenges I've tackled.",
+        access: {
+          title: 'Residential access control modernization',
+          p1: 'One of my most challenging projects was modernizing the infrastructure of an access control system for residential communities.',
+          p2: 'The challenge was migrating the main server from CentOS 8 to a simpler infrastructure for the team to manage, without compromising service availability. Beyond the migration, it was necessary to redesign the communication layer between the access controllers and the central server.',
+          p3: 'I implemented bidirectional communication via WebSockets, modifying both the backend and the controller firmware to maintain real-time synchronization. This enabled immediate access-event validation, improved data consistency, and reduced issues caused by asynchronous communication.',
+          p4: 'System reliability was critical — residents, visitors, and authorized personnel depended on it working every single day.',
+        },
+        payroll: {
+          title: 'Payroll calculation automation',
+          p1: 'At OPPO I led the automation of salary calculations based on company-wide attendance records.',
+          p2: "The core challenge wasn't just generating a report — it was ensuring data accuracy, since any inconsistency could directly impact the payroll process.",
+          p3: 'I designed the logic to consolidate attendance, tardiness, overtime, absences, and other attendance events into a reliable report that serves as the basis for salary calculations across the entire workforce.',
+          p4: 'This project required exhaustive business rule validation, edge-case handling, and close collaboration with HR to ensure results were consistent with company policies.',
+        },
+        commissions: {
+          title: 'Sales commission engine',
+          p1: 'Another high-impact project at OPPO was automating commission calculations for the commercial team.',
+          p2: 'The biggest challenge was the constantly evolving business rules. Commission schemes changed regularly due to new campaigns, promotions, and commercial strategy shifts — so the solution had to be flexible and easily adaptable.',
+          p3: 'I built a system that processes sales data and applies complex calculation rules automatically, significantly reducing manual effort and the risk of human error.',
+          p4: 'Beyond improving operational efficiency, the project delivered faster, more reliable results for a process that directly affects sales team compensation.',
+        },
+      },
       contact: {
         kicker: 'Contact',
         title: "Let's build something",
@@ -54,6 +81,7 @@ export default defineI18nConfig(() => ({
       nav: {
         about: 'Sobre mí',
         experience: 'Experiencia',
+        challenges: 'Retos',
         skills: 'Habilidades',
         projects: 'Proyectos',
         contact: 'Contacto',
@@ -69,7 +97,7 @@ export default defineI18nConfig(() => ({
       about: {
         kicker: 'Sobre mí',
         title: 'Ingeniero de título, solucionador en la práctica',
-        p1: 'Ingeniero de Software construyendo aplicaciones backend, web y empresariales escalables con PHP, Python, Java, React y lenguajes móviles.',
+        p1: 'Ingeniero de Software que construye aplicaciones asistidas por IA, sistemas backend escalables y soluciones empresariales con PHP, Python, Java, React y lenguajes móviles.',
         p2: 'Diseño APIs REST, sistemas de comunicación en tiempo real y plataformas de alta concurrencia para más de 100k usuarios, usando Clean Architecture, MVC/MVVM y prácticas ágiles en equipos internacionales.',
         p3: 'Código mantenible, menos deuda técnica, entregas confiables — cada iteración medible mejor que la anterior.',
       },
@@ -85,6 +113,32 @@ export default defineI18nConfig(() => ({
         years: 'Años de experiencia',
         stacks: 'Stacks principales',
         teamLed: 'Devs liderados como Tech Lead',
+      },
+      challenges: {
+        kicker: 'Retos',
+        title: 'Retos profesionales',
+        intro: 'A lo largo de mi carrera he trabajado en proyectos donde un error no solo representa un problema técnico, sino que puede afectar directamente la operación de una empresa o la experiencia de miles de usuarios. Estos son algunos de los desafíos más importantes que he enfrentado.',
+        access: {
+          title: 'Sistema de acceso para residenciales',
+          p1: 'Uno de los proyectos más desafiantes fue la modernización de la infraestructura de un sistema de control de acceso para fraccionamientos residenciales.',
+          p2: 'El reto consistía en migrar el servidor principal desde CentOS 8 hacia una nueva infraestructura más sencilla de administrar para el personal de la empresa, sin comprometer la disponibilidad del servicio. Además de la migración, fue necesario rediseñar el mecanismo de comunicación entre las controladoras instaladas en los accesos y el servidor central.',
+          p3: 'Implementé comunicación bidireccional mediante WebSockets, realizando modificaciones tanto en el backend como en el firmware de las controladoras para mantener una sincronización en tiempo real. Esto permitió validar eventos de acceso inmediatamente, mejorar la consistencia de los datos y reducir problemas derivados de la comunicación asíncrona.',
+          p4: 'La confiabilidad del sistema era un aspecto crítico, ya que de su correcto funcionamiento dependía el acceso diario de residentes, visitantes y personal autorizado.',
+        },
+        payroll: {
+          title: 'Automatización del cálculo de nómina',
+          p1: 'En OPPO participé en la automatización del cálculo de salarios basado en los registros de asistencia de toda la empresa.',
+          p2: 'El principal desafío no era únicamente generar un reporte, sino garantizar la exactitud de los datos, ya que cualquier inconsistencia podía impactar directamente el proceso de nómina.',
+          p3: 'Diseñé la lógica necesaria para consolidar información relacionada con asistencias, retardos, horas extra, incidencias y demás eventos de attendance, generando un reporte confiable que sirve como base para el cálculo salarial de toda la plantilla.',
+          p4: 'Este proyecto requirió una validación exhaustiva de reglas de negocio, manejo de casos excepcionales y una estrecha colaboración con el área de Recursos Humanos para asegurar que los resultados fueran consistentes con las políticas internas de la empresa.',
+        },
+        commissions: {
+          title: 'Automatización del cálculo de comisiones',
+          p1: 'Otro proyecto de alto impacto en OPPO fue la automatización del cálculo de comisiones para el equipo comercial.',
+          p2: 'El mayor reto fue la naturaleza cambiante de las reglas de negocio. Los esquemas de comisiones evolucionaban constantemente debido a nuevas campañas, promociones y cambios en la estrategia comercial, por lo que la solución debía ser flexible y fácilmente adaptable.',
+          p3: 'Desarrollé un sistema capaz de procesar la información de ventas y aplicar reglas de cálculo complejas de manera automatizada, reduciendo significativamente el trabajo manual y disminuyendo el riesgo de errores humanos.',
+          p4: 'Además de mejorar la eficiencia operativa, este proyecto permitió entregar resultados más rápidos y confiables para un proceso que influye directamente en la remuneración del equipo de ventas.',
+        },
       },
       contact: {
         kicker: 'Contacto',

@@ -1,90 +1,111 @@
 <script setup lang="ts">
-import { Building2, MapPin, Calendar } from 'lucide-vue-next'
+import { MapPin, Music2, ChevronDown } from 'lucide-vue-next'
+import { ref, unref } from 'vue'
+
 const { t } = useI18n()
 const { experiences } = useCv()
+
+const expanded = ref(unref(experiences).map(() => false))
+const toggle = (i: number) => { expanded.value[i] = !expanded.value[i] }
 </script>
 
 <template>
-  <section id="experience" class="section bg-slate-50/60 dark:bg-slate-900/30">
+  <section id="experience" class="section bg-stone-50/60 dark:bg-stone-900/20">
     <div class="container-xl">
-      <Reveal class="mb-16 text-center">
+      <Reveal class="mb-14">
         <p class="section-kicker">{{ t('experience.kicker') }}</p>
         <h2 class="section-title">{{ t('experience.title') }}</h2>
       </Reveal>
 
-      <div class="relative max-w-4xl mx-auto">
-        <!-- timeline rail -->
-        <div
-          class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/70 via-slate-300 dark:via-slate-700 to-transparent"
-        />
+      <!-- tracklist table -->
+      <div class="max-w-3xl border border-stone-200/80 dark:border-stone-800/50 rounded-2xl overflow-hidden bg-white dark:bg-stone-900/40 shadow-sm">
 
-        <div class="space-y-10">
+        <!-- column headers -->
+        <div class="flex items-center gap-4 px-5 py-3 border-b border-stone-100 dark:border-stone-800/60 bg-stone-50/80 dark:bg-stone-900/60">
+          <span class="w-7 text-center text-xs font-mono text-stone-400 dark:text-stone-600">#</span>
+          <span class="flex-1 text-xs font-mono text-stone-400 dark:text-stone-600 uppercase tracking-wider">{{ t('experience.kicker') }}</span>
+          <span class="hidden sm:block text-xs font-mono text-stone-400 dark:text-stone-600 uppercase tracking-wider">Location</span>
+          <span class="w-28 text-right text-xs font-mono text-stone-400 dark:text-stone-600 uppercase tracking-wider">Period</span>
+          <span class="w-5" />
+        </div>
+
+        <!-- tracks -->
+        <div>
           <Reveal v-for="(exp, i) in experiences" :key="i" :delay="i * 80">
             <div
-              :class="[
-                'relative flex md:items-start gap-8',
-                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
-              ]"
+              class="border-b border-stone-100 dark:border-stone-800/40 last:border-0"
+              :class="expanded[i] ? 'bg-brand-50/50 dark:bg-brand-950/20' : ''"
             >
-              <!-- node -->
-              <div
-                class="absolute left-4 md:left-1/2 w-3 h-3 -translate-x-1/2 rounded-full bg-brand-500 ring-4 ring-white dark:ring-slate-950 shadow-lg shadow-brand-500/50 top-6 z-10"
-              />
-
-              <div
-                class="pl-12 md:pl-0 md:w-1/2"
-                :class="i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'"
+              <!-- track row (clickable) -->
+              <button
+                type="button"
+                class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-stone-50 dark:hover:bg-stone-800/30 transition-colors"
+                :class="expanded[i] ? 'hover:bg-brand-50/50 dark:hover:bg-brand-950/20' : ''"
+                @click="toggle(i)"
               >
-                <div class="card hover:border-brand-500/50 hover:shadow-xl transition-all">
-                  <div
-                    :class="[
-                      'flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-2 font-mono',
-                      i % 2 === 0 ? 'md:justify-end' : '',
-                    ]"
-                  >
-                    <Calendar class="w-3.5 h-3.5" />
-                    <span>{{ exp.period }}</span>
-                  </div>
-                  <h3 class="font-display font-bold text-xl mb-1">{{ exp.role }}</h3>
-                  <div
-                    :class="[
-                      'flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400 mb-4 flex-wrap',
-                      i % 2 === 0 ? 'md:justify-end' : '',
-                    ]"
-                  >
-                    <span
-                      class="inline-flex items-center gap-1.5 font-semibold text-brand-600 dark:text-brand-400"
-                    >
-                      <Building2 class="w-3.5 h-3.5" />
-                      {{ exp.company }}
-                    </span>
-                    <span class="inline-flex items-center gap-1.5">
-                      <MapPin class="w-3.5 h-3.5" />
-                      {{ exp.location }}
-                    </span>
-                  </div>
-                  <ul
-                    :class="[
-                      'space-y-2 text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed',
-                      i % 2 === 0 ? 'md:text-right' : '',
-                    ]"
-                  >
-                    <li v-for="(h, hi) in exp.highlights" :key="hi">
-                      {{ h }}
-                    </li>
-                  </ul>
-                  <div
-                    :class="[
-                      'flex flex-wrap gap-1.5',
-                      i % 2 === 0 ? 'md:justify-end' : '',
-                    ]"
-                  >
-                    <span v-for="tech in exp.tech" :key="tech" class="chip">{{ tech }}</span>
+                <!-- track number / now-playing icon -->
+                <div class="w-7 flex-shrink-0 flex items-center justify-center">
+                  <Music2
+                    v-if="expanded[i]"
+                    class="w-3.5 h-3.5 text-brand-500 animate-pulse"
+                  />
+                  <span
+                    v-else
+                    class="text-xs font-mono text-stone-400 dark:text-stone-600"
+                  >{{ String(i + 1).padStart(2, '0') }}</span>
+                </div>
+
+                <!-- role + company -->
+                <div class="flex-1 min-w-0">
+                  <p class="font-display font-semibold text-sm text-stone-900 dark:text-stone-100 leading-snug truncate">
+                    {{ exp.role }}
+                  </p>
+                  <p class="text-xs text-brand-500 dark:text-brand-400 font-medium mt-0.5">
+                    {{ exp.company }}
+                  </p>
+                </div>
+
+                <!-- location -->
+                <span class="hidden sm:flex items-center gap-1 text-xs text-stone-400 dark:text-stone-600 flex-shrink-0 min-w-0">
+                  <MapPin class="w-3 h-3 flex-shrink-0" />
+                  <span class="truncate">{{ exp.location }}</span>
+                </span>
+
+                <!-- period -->
+                <span class="text-xs font-mono text-stone-400 dark:text-stone-600 flex-shrink-0 w-28 text-right">
+                  {{ exp.period }}
+                </span>
+
+                <!-- expand chevron -->
+                <ChevronDown
+                  class="w-4 h-4 text-stone-400 dark:text-stone-600 flex-shrink-0 transition-transform duration-200"
+                  :class="expanded[i] ? 'rotate-180' : ''"
+                />
+              </button>
+
+              <!-- expanded "lyrics" / highlights -->
+              <Transition
+                enter-active-class="transition-all duration-300 ease-out"
+                enter-from-class="opacity-0 max-h-0"
+                enter-to-class="opacity-100 max-h-[500px]"
+                leave-active-class="transition-all duration-200 ease-in"
+                leave-from-class="opacity-100 max-h-[500px]"
+                leave-to-class="opacity-0 max-h-0"
+              >
+                <div v-if="expanded[i]" class="overflow-hidden">
+                  <div class="px-5 pb-5 pt-1 ml-11 border-t border-stone-100 dark:border-stone-800/30">
+                    <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400 mb-4 leading-relaxed mt-3">
+                      <li v-for="(h, hi) in exp.highlights" :key="hi" class="flex gap-2.5 items-start">
+                        <span class="w-1 h-1 rounded-full bg-brand-500/50 mt-2 flex-shrink-0" />
+                        <span>{{ h }}</span>
+                      </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span v-for="tech in exp.tech" :key="tech" class="chip">{{ tech }}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="hidden md:block md:w-1/2" />
+              </Transition>
             </div>
           </Reveal>
         </div>

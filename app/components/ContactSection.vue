@@ -5,11 +5,11 @@ const { t } = useI18n()
 
 <template>
   <section id="contact" class="section">
-    <div class="container-xl max-w-4xl">
-      <Reveal class="text-center mb-12">
+    <div class="container-xl max-w-3xl">
+      <Reveal class="mb-12">
         <p class="section-kicker">{{ t('contact.kicker') }}</p>
         <h2 class="section-title">{{ t('contact.title') }}</h2>
-        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+        <p class="text-base text-stone-600 dark:text-stone-400 max-w-xl">
           {{ t('contact.copy') }}
         </p>
       </Reveal>
@@ -17,50 +17,50 @@ const { t } = useI18n()
       <Reveal :delay="100">
         <a
           href="mailto:djjceja@gmail.com"
-          class="card block hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all group mb-6"
+          class="card block hover:border-brand-500/50 dark:hover:border-brand-600/50 transition-all group mb-4"
         >
           <div class="flex items-center gap-4">
             <div
-              class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-fuchsia-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+              class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-rose-500/20 text-brand-500 dark:text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:from-brand-500/30 group-hover:to-rose-500/30 transition-colors"
             >
-              <Mail class="w-6 h-6" />
+              <Mail class="w-5 h-5" />
             </div>
             <div class="flex-1 min-w-0">
-              <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">
+              <p class="text-xs font-mono text-stone-400 dark:text-stone-600 mb-0.5">
                 {{ t('contact.emailLabel') }}
               </p>
-              <p class="font-display font-semibold text-lg truncate">
+              <p class="font-mono font-medium truncate text-stone-900 dark:text-stone-100">
                 djjceja@gmail.com
               </p>
             </div>
             <ArrowRight
-              class="w-5 h-5 text-slate-400 group-hover:translate-x-1 group-hover:text-brand-500 transition-all"
+              class="w-4 h-4 text-stone-400 group-hover:translate-x-1 group-hover:text-brand-500 transition-all"
             />
           </div>
         </a>
       </Reveal>
 
       <Reveal :delay="200">
-        <div class="grid sm:grid-cols-3 gap-4">
+        <div class="grid sm:grid-cols-3 gap-3">
           <a
             href="tel:+524491974620"
-            class="card flex items-center gap-3 hover:border-brand-500/50 hover:-translate-y-0.5 transition-all"
+            class="card flex items-center gap-3 hover:border-brand-500/40 dark:hover:border-brand-700/50 transition-all"
           >
-            <Phone class="w-5 h-5 text-brand-500 flex-shrink-0" />
-            <span class="text-sm font-medium">+52 449 197 4620</span>
+            <Phone class="w-4 h-4 text-brand-500 flex-shrink-0" />
+            <span class="text-sm font-mono text-stone-700 dark:text-stone-400">+52 449 197 4620</span>
           </a>
           <div class="card flex items-center gap-3">
-            <MapPin class="w-5 h-5 text-brand-500 flex-shrink-0" />
-            <span class="text-sm font-medium">Ciudad de México</span>
+            <MapPin class="w-4 h-4 text-brand-500 flex-shrink-0" />
+            <span class="text-sm font-mono text-stone-700 dark:text-stone-400">Ciudad de México</span>
           </div>
           <a
             href="https://linkedin.com/in/donovan-jerez-ceja/"
             target="_blank"
             rel="noopener"
-            class="card flex items-center gap-3 hover:border-brand-500/50 hover:-translate-y-0.5 transition-all"
+            class="card flex items-center gap-3 hover:border-brand-500/40 dark:hover:border-brand-700/50 transition-all"
           >
-            <Linkedin class="w-5 h-5 text-brand-500 flex-shrink-0" />
-            <span class="text-sm font-medium">LinkedIn</span>
+            <Linkedin class="w-4 h-4 text-brand-500 flex-shrink-0" />
+            <span class="text-sm font-mono text-stone-700 dark:text-stone-400">LinkedIn</span>
           </a>
         </div>
       </Reveal>

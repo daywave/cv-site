@@ -4,6 +4,7 @@
     <AboutSection />
     <StatsSection />
     <ExperienceSection />
+    <ChallengesSection />
     <SkillsSection />
     <ProjectsSection />
     <ContactSection />

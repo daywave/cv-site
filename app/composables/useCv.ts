@@ -14,23 +14,23 @@ export const useCv = () => {
       location: pick({ en: 'Mexico City, Mexico', es: 'Ciudad de México, México' }),
       highlights: pick({
         en: [
-          'Developed and maintained backend services and business applications for enterprise systems.',
-          'Built and optimized REST APIs, improving performance and system reliability.',
-          'Collaborated with international teams following Agile methodologies and software engineering best practices.',
-          'Performed code reviews, refactoring and technical analysis to improve maintainability and reduce technical debt.',
-          'Integrated AI-powered development agents into the delivery process, accelerating code reviews, technical planning, test generation and development workflows.',
-          'Leveraged AI-assisted tools to improve engineering productivity, solution design and software quality throughout the SDLC.',
+          'Built and maintained REST APIs and backend services using PHP, Python, Node.js, MySQL, and Redis.',
+          'Automated a dynamic commission system with 16 configurable KPI templates, processing ~US$8M in monthly payouts across Mexico.',
+          'Developed a rule-based payroll system for salary, overtime, attendance, and deductions.',
+          'Integrated AI agents into the development workflow to speed up code reviews and test generation.',
+          'Performed code reviews and refactoring to reduce technical debt.',
+          'Developed Flutter features integrated with backend services.',
         ],
         es: [
-          'Desarrollé y mantuve servicios backend y aplicaciones de negocio para sistemas empresariales.',
-          'Construí y optimicé APIs REST, mejorando rendimiento y confiabilidad del sistema.',
-          'Colaboré con equipos internacionales siguiendo metodologías ágiles y buenas prácticas de ingeniería de software.',
-          'Realicé code reviews, refactoring y análisis técnico para mejorar mantenibilidad y reducir deuda técnica.',
-          'Integré agentes de desarrollo con IA al proceso de entrega, acelerando code reviews, planeación técnica, generación de tests y flujos de desarrollo.',
-          'Aproveché herramientas asistidas por IA para mejorar productividad, diseño de soluciones y calidad de software en todo el SDLC.',
+          'Construí y mantuve APIs REST y servicios backend usando PHP, Python, Node.js, MySQL y Redis.',
+          'Automaticé un sistema de comisiones dinámico con 16 plantillas de KPI configurables, procesando ~$8M USD en pagos mensuales en México.',
+          'Desarrollé un sistema de nómina basado en reglas para salario, horas extra, asistencia y deducciones.',
+          'Integré agentes de IA en el flujo de desarrollo para acelerar code reviews y generación de pruebas.',
+          'Realicé code reviews y refactoring para reducir deuda técnica.',
+          'Desarrollé funcionalidades Flutter integradas con servicios backend.',
         ],
       }),
-      tech: ['Backend', 'REST APIs', 'AI Agents', 'Code Review', 'Agile', 'SDLC'],
+      tech: ['PHP', 'Python', 'Node.js', 'MySQL', 'Redis', 'Flutter', 'AI Agents'],
     },
     {
       company: 'Posibilidades',
@@ -87,6 +87,7 @@ export const useCv = () => {
   ])
 
   const skills = [
+    { group: { en: 'AI & Automation', es: 'IA y Automatización' }, items: ['AI Agents', 'LLM Integration', 'Prompt Engineering', 'Workflow Automation'] },
     { group: { en: 'Core Technologies', es: 'Tecnologías Principales' }, items: ['Python', 'Java', 'React', 'JavaScript', 'Mobile Development'] },
     { group: { en: 'Backend & Architecture', es: 'Backend y Arquitectura' }, items: ['REST API Design', 'Backend Development', 'Scalable Systems', 'Clean Architecture', 'MVC', 'MVVM', 'WebSockets'] },
     { group: { en: 'Tools & DevOps', es: 'Herramientas y DevOps' }, items: ['Git', 'Docker', 'CI/CD'] },

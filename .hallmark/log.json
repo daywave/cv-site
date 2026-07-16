@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-07-15",
+    "macrostructure": "Bespoke Music Player",
+    "theme": "Bloom",
+    "theme_axes": "light / grotesk-sans / warm (rose-coral)",
+    "enrichment": "Tier-A CSS art — spinning vinyl record",
+    "nav": "N6 Masthead (warm)",
+    "footer": "Ft5 Statement (mini-player variant)",
+    "brief": "Donovan Jerez · personal CV site · hiring managers · AI / music / mobile inspiration"
+  },
+  {
+    "date": "2026-07-15",
+    "macrostructure": "Marquee Hero",
+    "theme": "Midnight",
+    "theme_axes": "dark / grotesk-sans / cool (indigo-violet)",
+    "enrichment": "atmospheric orbs (blur 120-140px) + dot grid",
+    "nav": "N6 Masthead",
+    "footer": "Ft5 Statement",
+    "brief": "Donovan Jerez · personal CV site · hiring managers · AI / music / mobile inspiration"
+  },
+  {
+    "date": "2026-07-15",
+    "macrostructure": "Editorial Column",
+    "theme": "Terminal",
+    "theme_axes": "dark / mono / chromatic-other (phosphor green)",
+    "enrichment": "none",
+    "nav": "N6 Masthead",
+    "footer": "Ft5 Statement",
+    "brief": "Donovan Jerez · personal CV site · hiring managers · technical/utilitarian"
+  }
+]

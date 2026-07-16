@@ -1,0 +1,89 @@
+/* Hallmark · macrostructure: Bespoke Music Player · tone: warm/editorial-technical · anchor hue: rose-coral
+ * theme: Bloom · paper oklch(97% 0.008 60) · accent oklch(58% 0.20 25)
+ * display: Space Grotesk · body: Inter
+ * axes: light / grotesk-sans / warm (rose-coral)
+ */
+
+:root {
+  /* paper — warm cream */
+  --color-paper: oklch(97% 0.008 60);
+  --color-paper-2: oklch(93% 0.012 60);
+  --color-paper-3: oklch(89% 0.015 60);
+
+  /* ink */
+  --color-ink: oklch(18% 0.010 50);
+  --color-ink-2: oklch(45% 0.010 50);
+
+  /* accent — rose-coral */
+  --color-accent: oklch(58% 0.20 25);
+  --color-accent-dim: oklch(58% 0.08 25);
+  --color-accent-dark: oklch(42% 0.18 25);
+
+  /* accent 2 — deep rose */
+  --color-accent-2: oklch(42% 0.16 10);
+
+  /* borders */
+  --color-border: oklch(90% 0.010 60);
+  --color-border-active: oklch(60% 0.14 25);
+
+  /* focus */
+  --color-focus: oklch(58% 0.20 25);
+
+  /* typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-display-s: 3rem;
+  --text-display: 3.75rem;
+  --text-display-l: 5rem;
+
+  /* spacing (4pt scale) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 48px;
+  --space-2xl: 96px;
+
+  /* easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* durations */
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+
+  /* radius — rounded, app-like */
+  --radius-sm: 6px;
+  --radius-base: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  /* rules */
+  --rule-default: 1px solid oklch(90% 0.010 60);
+  --rule-accent: 1px solid oklch(60% 0.14 25);
+}
+
+/* dark overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(9% 0.012 40);
+    --color-paper-2: oklch(13% 0.014 40);
+    --color-paper-3: oklch(17% 0.016 40);
+    --color-ink: oklch(90% 0.008 60);
+    --color-ink-2: oklch(65% 0.008 50);
+    --color-border: oklch(18% 0.014 40);
+  }
+}

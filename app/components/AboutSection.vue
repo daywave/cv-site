@@ -39,7 +39,7 @@ const pillars = [
           </Reveal>
 
           <Reveal :delay="100">
-            <div class="space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+            <div class="space-y-5 text-stone-600 dark:text-stone-400 leading-relaxed text-base">
               <p>{{ t('about.p1') }}</p>
               <p>{{ t('about.p2') }}</p>
               <p>{{ t('about.p3') }}</p>
@@ -50,13 +50,13 @@ const pillars = [
             <div class="mt-8 card">
               <div class="flex items-start gap-4">
                 <div
-                  class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0"
+                  class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500/20 to-rose-500/20 text-brand-500 dark:text-brand-400 flex items-center justify-center flex-shrink-0"
                 >
-                  <GraduationCap class="w-5 h-5" />
+                  <GraduationCap class="w-4 h-4" />
                 </div>
                 <div v-for="(e, i) in education" :key="i">
-                  <h4 class="font-semibold">{{ e.degree }}</h4>
-                  <p class="text-sm text-slate-600 dark:text-slate-400">
+                  <h4 class="font-semibold text-sm text-stone-900 dark:text-stone-100">{{ e.degree }}</h4>
+                  <p class="text-xs font-mono text-stone-500 dark:text-stone-500 mt-0.5">
                     {{ e.school }} · {{ e.period }}
                   </p>
                 </div>
@@ -65,22 +65,20 @@ const pillars = [
           </Reveal>
         </div>
 
-        <div class="md:col-span-2 space-y-4">
-          <Reveal v-for="(p, i) in pillars" :key="i" :delay="i * 120">
-            <div
-              class="card hover:border-brand-500/50 hover:shadow-lg hover:shadow-brand-500/5 group"
-            >
+        <div class="md:col-span-2 space-y-3">
+          <Reveal v-for="(p, i) in pillars" :key="i" :delay="i * 100">
+            <div class="card hover:border-brand-500/40 dark:hover:border-brand-700/50 group transition-all">
               <div class="flex items-start gap-4">
                 <div
-                  class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500/20 to-fuchsia-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                  class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500/20 to-rose-500/20 text-brand-500 dark:text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:from-brand-500/30 group-hover:to-rose-500/30 transition-colors"
                 >
-                  <component :is="p.icon" class="w-5 h-5" />
+                  <component :is="p.icon" class="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 class="font-semibold mb-1">
+                  <h3 class="font-display font-semibold text-sm mb-1 text-stone-900 dark:text-stone-100">
                     {{ locale === 'es' ? p.titleEs : p.titleEn }}
                   </h3>
-                  <p class="text-sm text-slate-600 dark:text-slate-400">
+                  <p class="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">
                     {{ locale === 'es' ? p.bodyEs : p.bodyEn }}
                   </p>
                 </div>

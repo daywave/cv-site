@@ -40,18 +40,18 @@ const fmt = (v: number) => v.toLocaleString()
 <template>
   <section
     ref="el"
-    class="relative overflow-hidden py-20 md:py-24 bg-gradient-to-br from-brand-600 via-brand-700 to-fuchsia-700 text-white"
+    class="relative overflow-hidden py-20 md:py-24 bg-gradient-to-br from-brand-500 via-brand-600 to-rose-800 dark:from-brand-700 dark:via-brand-800 dark:to-rose-900 text-white"
   >
-    <div class="absolute inset-0 bg-grid opacity-30" />
-    <div class="absolute inset-0 bg-gradient-to-t from-brand-900/40 to-transparent" />
+    <div class="absolute inset-0 bg-vinyl opacity-30" />
+    <div class="absolute inset-0 bg-gradient-to-t from-rose-900/40 to-transparent" />
 
     <div class="relative container-xl">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div v-for="(s, i) in stats" :key="i" class="text-center">
           <div class="text-4xl md:text-6xl font-display font-bold mb-2 tabular-nums">
-            {{ fmt(values[i] || 0) }}<span class="text-brand-200">{{ s.suffix }}</span>
+            {{ fmt(values[i] || 0) }}<span class="text-brand-100/70">{{ s.suffix }}</span>
           </div>
-          <div class="text-xs md:text-sm text-brand-100/90 font-medium uppercase tracking-wider">
+          <div class="text-xs md:text-sm text-brand-100/80 font-medium uppercase tracking-wider">
             {{ t(s.labelKey) }}
           </div>
         </div>
