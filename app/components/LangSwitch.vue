@@ -9,8 +9,7 @@ const toggle = () => {
   <button
     type="button"
     @click="toggle"
-    class="px-3 py-1.5 rounded-lg text-xs font-semibold font-mono uppercase tracking-wider
-           hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+    class="btn-icon px-3 text-xs font-semibold font-mono uppercase tracking-wider"
     :aria-label="`Switch language to ${locale === 'en' ? 'Spanish' : 'English'}`"
   >
     {{ locale === 'en' ? 'ES' : 'EN' }}

@@ -10,7 +10,7 @@ const toggle = () => {
   <button
     type="button"
     @click="toggle"
-    class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+    class="btn-icon"
     :aria-label="`Switch to ${colorMode.value === 'dark' ? 'light' : 'dark'} mode`"
   >
     <ClientOnly>

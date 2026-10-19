@@ -1,89 +1,71 @@
-/* Hallmark · macrostructure: Bespoke Music Player · tone: warm/editorial-technical · anchor hue: rose-coral
- * theme: Bloom · paper oklch(97% 0.008 60) · accent oklch(58% 0.20 25)
- * display: Space Grotesk · body: Inter
- * axes: light / grotesk-sans / warm (rose-coral)
+/* Hallmark · macrostructure: Long Document · polish: HP1 vertical-rail · tone: editorial-quiet · anchor hue: deep green + ember orange
+ * theme: studied-DNA (source: image — petithunan.com screenshots) · paper oklch(97% 0.012 75.4) · ink oklch(28.6% 0.035 174.3)
+ * brand: green #1E513B / #22583E · accent: orange #E36A26 / #DF5D27 (sparks only)
+ * display: Newsreader (roman, optical sizes) · body: Inter Tight — two fonts max (DESIGN-SYSTEM.md §7)
+ * nav: N9 edge-aligned · footer: Ft6 letter close · enrichment: Tier-B hand-built SVG paper plane + entry flight
+ * colours stored as OKLCH channels so Tailwind alpha modifiers work: oklch(var(--x) / <alpha-value>)
  */
 
 :root {
-  /* paper — warm cream */
-  --color-paper: oklch(97% 0.008 60);
-  --color-paper-2: oklch(93% 0.012 60);
-  --color-paper-3: oklch(89% 0.015 60);
+  /* surfaces — warm cream */
+  --paper: 97% 0.012 75.4;         /* #faf4ec */
+  --sunk: 94.5% 0.015 75;
+  --surface: 98.5% 0.008 75;
+  --line: 87% 0.016 80;
 
-  /* ink */
-  --color-ink: oklch(18% 0.010 50);
-  --color-ink-2: oklch(45% 0.010 50);
+  /* ink — green-black, ties neutrals to the brand */
+  --ink: 28.6% 0.035 174.3;         /* #163029 */
+  --ink-2: 40% 0.025 170;
+  --ink-3: 48% 0.020 165;
 
-  /* accent — rose-coral */
-  --color-accent: oklch(58% 0.20 25);
-  --color-accent-dim: oklch(58% 0.08 25);
-  --color-accent-dark: oklch(42% 0.18 25);
+  /* brand — forest green (#1E513B / #22583E) */
+  --brand: 39.3% 0.067 162.3;
+  --brand-hover: 41.6% 0.073 159.8;
+  --brand-ink: 39.3% 0.067 162.3;   /* green as text / icons */
 
-  /* accent 2 — deep rose */
-  --color-accent-2: oklch(42% 0.16 10);
+  /* accent — ember orange (#E36A26 / #DF5D27) */
+  --accent: 66.1% 0.169 45.7;
+  --accent-hover: 63.7% 0.175 40.7;
+  --accent-ink: 52% 0.150 42;       /* orange as small text — pure #E36A26 is only 3:1 on cream */
+  --on-accent: 18% 0.030 160;       /* dark green on orange, 5.2:1 */
 
-  /* borders */
-  --color-border: oklch(90% 0.010 60);
-  --color-border-active: oklch(60% 0.14 25);
+  /* primary action — green in light mode */
+  --cta: var(--brand);
+  --cta-hover: var(--brand-hover);
+  --on-cta: 98% 0.008 80;
 
-  /* focus */
-  --color-focus: oklch(58% 0.20 25);
+  /* illustration — vinyl record stays dark in both modes */
+  --record: 17% 0.02 160;
+  --record-edge: 11% 0.015 160;
 
-  /* typography */
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-body); /* ponytail: no mono face — meta text uses body + tabular nums */
 
-  /* type scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-display-s: 3rem;
-  --text-display: 3.75rem;
-  --text-display-l: 5rem;
-
-  /* spacing (4pt scale) */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 48px;
-  --space-2xl: 96px;
-
-  /* easing */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
-
-  /* durations */
   --dur-fast: 150ms;
   --dur-base: 250ms;
-  --dur-slow: 400ms;
-
-  /* radius — rounded, app-like */
-  --radius-sm: 6px;
-  --radius-base: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 18px;
-
-  /* rules */
-  --rule-default: 1px solid oklch(90% 0.010 60);
-  --rule-accent: 1px solid oklch(60% 0.14 25);
+  --dur-slow: 500ms;
 }
 
-/* dark overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-paper: oklch(9% 0.012 40);
-    --color-paper-2: oklch(13% 0.014 40);
-    --color-paper-3: oklch(17% 0.016 40);
-    --color-ink: oklch(90% 0.008 60);
-    --color-ink-2: oklch(65% 0.008 50);
-    --color-border: oklch(18% 0.014 40);
-  }
+/* @nuxtjs/color-mode toggles .dark on <html> — deep forest night */
+:root.dark {
+  --paper: 16% 0.022 160;
+  --sunk: 18.5% 0.025 160;
+  --surface: 21% 0.028 160;
+  --line: 29% 0.028 160;
+
+  --ink: 95% 0.010 80;
+  --ink-2: 81% 0.015 100;
+  --ink-3: 69% 0.015 130;
+
+  --brand-ink: 78% 0.090 160;       /* light sage for green text on dark */
+  --accent-ink: 72% 0.150 47;
+
+  /* primary action flips to orange — green would vanish on green paper */
+  --cta: var(--accent);
+  --cta-hover: var(--accent-hover);
+  --on-cta: var(--on-accent);
 }

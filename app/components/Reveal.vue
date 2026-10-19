@@ -28,8 +28,8 @@ const { stop } = useIntersectionObserver(
     :is="as || 'div'"
     ref="el"
     :class="[
-      'transition-all duration-700 ease-out will-change-transform',
-      visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
+      'transition duration-500 ease-out motion-reduce:transition-opacity',
+      visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 motion-reduce:translate-y-0',
     ]"
     :style="{ transitionDelay: `${delay || 0}ms` }"
   >

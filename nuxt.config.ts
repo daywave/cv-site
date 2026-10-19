@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
   ],
 
-  css: ['~/assets/css/main.css'],
+  css: ['~~/tokens.css', '~/assets/css/main.css'],
 
   tailwindcss: {
     cssPath: ['~/assets/css/main.css', { injectPosition: 'first' }],
@@ -35,22 +35,22 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Donovan Jerez — Full-Stack Developer',
+      title: 'Donovan Jerez — Cloud & Full-Stack Developer',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
-            'Full-Stack Developer specializing in PHP, Laravel, Flutter, Vue.js and Node.js. Building scalable REST APIs and mobile apps for 100k+ users.',
+            'Cloud & Full-Stack Developer — backend architectures, real-time WebSocket services, and cloud migrations (AWS to Alibaba Cloud OSS). PHP, Python, Node.js, Vue and Flutter.',
         },
         { name: 'author', content: 'Donovan Jerez' },
-        { name: 'theme-color', content: '#2563eb' },
-        { property: 'og:title', content: 'Donovan Jerez — Full-Stack Developer' },
+        { name: 'theme-color', content: '#1E513B' },
+        { property: 'og:title', content: 'Donovan Jerez — Cloud & Full-Stack Developer' },
         { property: 'og:type', content: 'website' },
         {
           property: 'og:description',
-          content: 'Scalable backends, Flutter apps, clean architecture.',
+          content: 'Backend architectures, real-time services and cloud migrations.',
         },
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],

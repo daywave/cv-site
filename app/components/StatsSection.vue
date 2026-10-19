@@ -1,61 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
-
 const { t } = useI18n()
 const { stats } = useCv()
-
-const el = ref<HTMLElement | null>(null)
-const values = ref<number[]>(stats.map(() => 0))
-const started = ref(false)
-
-const animate = () => {
-  if (started.value) return
-  started.value = true
-  stats.forEach((s, i) => {
-    const duration = 1600
-    const start = performance.now()
-    const step = (now: number) => {
-      const p = Math.min((now - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - p, 3)
-      values.value[i] = Math.floor(s.value * eased)
-      if (p < 1) requestAnimationFrame(step)
-      else values.value[i] = s.value
-    }
-    requestAnimationFrame(step)
-  })
-}
-
-useIntersectionObserver(
-  el,
-  ([{ isIntersecting }]) => {
-    if (isIntersecting) animate()
-  },
-  { threshold: 0.3 },
-)
-
-const fmt = (v: number) => v.toLocaleString()
 </script>
 
 <template>
-  <section
-    ref="el"
-    class="relative overflow-hidden py-20 md:py-24 bg-gradient-to-br from-brand-500 via-brand-600 to-rose-800 dark:from-brand-700 dark:via-brand-800 dark:to-rose-900 text-white"
-  >
-    <div class="absolute inset-0 bg-vinyl opacity-30" />
-    <div class="absolute inset-0 bg-gradient-to-t from-rose-900/40 to-transparent" />
-
-    <div class="relative container-xl">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div v-for="(s, i) in stats" :key="i" class="text-center">
-          <div class="text-4xl md:text-6xl font-display font-bold mb-2 tabular-nums">
-            {{ fmt(values[i] || 0) }}<span class="text-brand-100/70">{{ s.suffix }}</span>
-          </div>
-          <div class="text-xs md:text-sm text-brand-100/80 font-medium uppercase tracking-wider">
-            {{ t(s.labelKey) }}
-          </div>
-        </div>
+  <section class="container-xl" aria-label="Numbers">
+    <dl class="grid grid-cols-2 md:grid-cols-4 border-y border-line">
+      <div
+        v-for="(s, i) in stats"
+        :key="i"
+        class="py-8 md:py-10 px-1 md:px-6 md:first:pl-0 border-line [&:nth-child(odd)]:border-r md:border-r md:last:border-r-0 [&:nth-child(-n+2)]:border-b md:[&:nth-child(-n+2)]:border-b-0"
+      >
+        <dd class="font-display text-5xl md:text-6xl text-ink tabular leading-none">
+          {{ s.prefix }}{{ s.value.toLocaleString() }}{{ s.suffix }}
+        </dd>
+        <dt class="meta mt-3">{{ t(s.labelKey) }}</dt>
       </div>
-    </div>
+    </dl>
   </section>
 </template>

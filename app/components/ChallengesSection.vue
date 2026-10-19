@@ -1,82 +1,55 @@
-<!-- Hallmark · component: section · genre: atmospheric (music-player) · theme: Bloom
- * macrostructure: Liner Notes (narrative cards, open — no expand/collapse)
- * contrast: pass · responsive: pass
- -->
 <script setup lang="ts">
-import { Server, Receipt, TrendingUp } from 'lucide-vue-next'
 const { t } = useI18n()
 
 const challenges = [
-  {
-    key: 'access',
-    icon: Server,
-    tech: ['WebSockets', 'CentOS 8', 'Firmware', 'Real-time sync'],
-    paragraphs: [1, 2, 3, 4],
-  },
-  {
-    key: 'payroll',
-    icon: Receipt,
-    tech: ['Attendance systems', 'Business rules', 'HR collaboration'],
-    paragraphs: [1, 2, 3, 4],
-  },
+  { key: 'access', tech: ['WebSockets', 'CentOS 8', 'Firmware', 'Real-time sync'], paragraphs: [1, 2, 3, 4] },
+  { key: 'payroll', tech: ['Attendance systems', 'Business rules', 'HR collaboration'], paragraphs: [1, 2, 3, 4] },
   {
     key: 'commissions',
-    icon: TrendingUp,
-    tech: ['Sales automation', 'Rule engine', 'Data processing'],
+    tech: ['PHP / Zend Framework', 'MySQL', 'Rule engine', 'Data snapshots', 'Background jobs', 'Excel reporting'],
     paragraphs: [1, 2, 3, 4],
+    deep: [1, 2, 3, 4, 5, 6, 7, 8],
   },
 ]
 </script>
 
 <template>
-  <section id="challenges" class="section bg-vinyl bg-stone-50/40 dark:bg-stone-900/10">
+  <section id="challenges" class="section bg-sunk">
     <div class="container-xl">
-      <Reveal class="mb-14">
-        <p class="section-kicker">{{ t('challenges.kicker') }}</p>
-        <h2 class="section-title overflow-wrap-anywhere min-w-0">{{ t('challenges.title') }}</h2>
-        <p class="text-base text-stone-600 dark:text-stone-400 max-w-2xl mt-4 leading-relaxed">
-          {{ t('challenges.intro') }}
-        </p>
+      <Reveal class="section-head">
+        <h2 class="section-title">{{ t('challenges.title') }}</h2>
+        <p class="section-lede prose-measure">{{ t('challenges.intro') }}</p>
       </Reveal>
 
-      <div class="max-w-3xl space-y-5">
-        <Reveal v-for="(c, i) in challenges" :key="c.key" :delay="i * 100">
-          <div class="card group hover:border-brand-500/30 dark:hover:border-brand-600/30 transition-colors duration-200">
-            <div class="flex items-start gap-4">
-
-              <!-- number + icon badge -->
-              <div
-                class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/15 to-rose-500/15 dark:from-brand-500/20 dark:to-rose-500/20 flex flex-col items-center justify-center flex-shrink-0 mt-0.5 gap-0"
-              >
-                <span class="text-[10px] font-mono font-bold text-brand-500 dark:text-brand-400 leading-none">
-                  {{ String(i + 1).padStart(2, '0') }}
-                </span>
-                <component
-                  :is="c.icon"
-                  class="w-3.5 h-3.5 text-brand-500/70 dark:text-brand-400/70 mt-0.5"
-                />
-              </div>
-
-              <!-- content -->
-              <div class="flex-1 min-w-0">
-                <h3 class="font-display font-semibold text-base sm:text-lg text-stone-900 dark:text-stone-100 leading-snug mb-3 overflow-wrap-anywhere min-w-0">
-                  {{ t(`challenges.${c.key}.title`) }}
-                </h3>
-
-                <div class="space-y-2.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-                  <p v-for="n in c.paragraphs" :key="n">
-                    {{ t(`challenges.${c.key}.p${n}`) }}
-                  </p>
-                </div>
-
-                <div class="flex flex-wrap gap-1.5 mt-4">
-                  <span v-for="tag in c.tech" :key="tag" class="chip">{{ tag }}</span>
-                </div>
-              </div>
+      <!-- ordinal content, so numbered (Long Document syntax, not decoration) -->
+      <ol class="space-y-20">
+        <Reveal v-for="(c, i) in challenges" :key="c.key" :delay="i * 80" as="li" class="grid md:grid-cols-12 gap-6 border-t border-line pt-8">
+          <p class="md:col-span-1 font-display text-2xl text-ink-3 tabular">{{ String(i + 1).padStart(2, '0') }}</p>
+          <h3 class="md:col-span-4 font-display text-3xl leading-tight overflow-wrap-anywhere min-w-0">{{ t(`challenges.${c.key}.title`) }}</h3>
+          <div class="md:col-span-6 md:col-start-7">
+            <div class="space-y-4 card-body prose-measure">
+              <p v-for="n in c.paragraphs" :key="n">{{ t(`challenges.${c.key}.p${n}`) }}</p>
             </div>
+            <p class="flex flex-wrap gap-x-4 gap-y-1 mt-6">
+              <span v-for="tag in c.tech" :key="tag" class="chip">{{ tag }}</span>
+            </p>
+
+            <!-- native disclosure: keyboard + screen-reader support for free -->
+            <details v-if="c.deep" class="group mt-8 border-t border-line">
+              <summary class="flex items-center justify-between gap-4 py-4 cursor-pointer text-sm font-medium text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="whitespace-nowrap">{{ t('challenges.deepDive') }}</span>
+                <span class="text-ink-3 text-lg leading-none transition-transform duration-200 ease-out group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <dl class="space-y-6 pb-2">
+                <div v-for="d in c.deep" :key="d">
+                  <dt class="font-display text-xl text-ink leading-snug">{{ t(`challenges.${c.key}.d${d}.q`) }}</dt>
+                  <dd class="card-body mt-2">{{ t(`challenges.${c.key}.d${d}.a`) }}</dd>
+                </div>
+              </dl>
+            </details>
           </div>
         </Reveal>
-      </div>
+      </ol>
     </div>
   </section>
 </template>

@@ -1,5 +1,37 @@
 [
   {
+    "date": "2026-10-16",
+    "macrostructure": "Long Document",
+    "polish": "HP1 vertical-rail",
+    "theme": "studied-DNA (image — petithunan.com) + DESIGN-SYSTEM.md",
+    "theme_axes": "light / classical-serif (Instrument Serif) / chromatic-other (deep green) + warm spark",
+    "enrichment": "Tier-B hand-built SVG paper plane + entry flight",
+    "nav": "N9 Edge-aligned",
+    "footer": "Ft6 Letter close",
+    "brief": "CV redesign — drop DJ/music metaphor; quiet editorial à la Petit Hunan"
+  },
+  {
+    "date": "2026-10-16",
+    "macrostructure": "Bespoke Music Player",
+    "theme": "custom",
+    "theme_axes": "light / grotesk-sans / warm (orange) + chromatic-other (green)",
+    "vibe": "forest green, ember orange, warm cream, vinyl",
+    "enrichment": "Tier-A CSS art — spinning vinyl record",
+    "nav": "N6 Masthead (warm)",
+    "footer": "Ft5 Statement (mini-player variant)",
+    "brief": "Brand recolour — green #1E513B/#22583E + orange #E36A26/#DF5D27"
+  },
+  {
+    "date": "2026-10-15",
+    "macrostructure": "Bespoke Music Player",
+    "theme": "Bloom",
+    "theme_axes": "light / grotesk-sans / warm (rose-coral)",
+    "enrichment": "Tier-A CSS art — spinning vinyl record",
+    "nav": "N6 Masthead (warm)",
+    "footer": "Ft5 Statement (mini-player variant)",
+    "brief": "Harmony pass — tokens.css wired into Tailwind as single colour source; all components swept onto shared classes"
+  },
+  {
     "date": "2026-07-15",
     "macrostructure": "Bespoke Music Player",
     "theme": "Bloom",

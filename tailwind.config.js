@@ -1,55 +1,38 @@
 /** @type {import('tailwindcss').Config} */
+const tok = (name) => `oklch(var(--${name}) / <alpha-value>)`
+
 export default {
   darkMode: 'class',
   content: [
     './app/**/*.{vue,js,ts}',
-    './components/**/*.{vue,js,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './app.vue',
-    './i18n.config.ts',
+    './i18n/**/*.ts',
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        sans: ['var(--font-body)'],
+        display: ['var(--font-display)'],
+        mono: ['var(--font-mono)'],
       },
+      // ponytail: every colour comes from tokens.css — no raw palette, no dark: variants needed
       colors: {
-        brand: {
-          50:  '#fff2ef',
-          100: '#fde0da',
-          200: '#fbbdb3',
-          300: '#f8907e',
-          400: '#f46448',
-          500: '#e55844',
-          600: '#ce4030',
-          700: '#aa2e20',
-          800: '#8a2116',
-          900: '#70190e',
-          950: '#3e0906',
-        },
+        paper: tok('paper'),
+        sunk: tok('sunk'),
+        surface: tok('surface'),
+        line: tok('line'),
+        ink: { DEFAULT: tok('ink'), 2: tok('ink-2'), 3: tok('ink-3') },
+        brand: { DEFAULT: tok('brand'), hover: tok('brand-hover'), ink: tok('brand-ink') },
+        accent: { DEFAULT: tok('accent'), hover: tok('accent-hover'), ink: tok('accent-ink'), on: tok('on-accent') },
+        cta: { DEFAULT: tok('cta'), hover: tok('cta-hover'), on: tok('on-cta') },
+        record: { DEFAULT: tok('record'), edge: tok('record-edge') },
+      },
+      transitionTimingFunction: {
+        out: 'var(--ease-out)',
+        in: 'var(--ease-in)',
+        'in-out': 'var(--ease-in-out)',
       },
       animation: {
-        float: 'float 9s ease-in-out infinite',
-        'fade-up': 'fadeUp .6s ease-out both',
         'spin-slow': 'spin 22s linear infinite',
-      },
-      keyframes: {
-        spin: {
-          from: { transform: 'rotate(0deg)' },
-          to: { transform: 'rotate(360deg)' },
-        },
-        float: {
-          '0%,100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        fadeUp: {
-          from: { opacity: '0', transform: 'translateY(24px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
       },
     },
   },
