@@ -13,8 +13,8 @@ const hatch = Array.from({ length: 9 }, (_, i) => {
 </script>
 
 <template>
-  <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
-    <path v-if="trail" d="M-40 76 C -18 74, -6 62, 18 64" stroke-dasharray="2 5" stroke-linecap="round" opacity="0.6" />
+  <svg viewBox="0 0 120 80" class="overflow-visible" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+    <path v-if="trail" class="plane-trail" d="M-40 76 C -18 74, -6 62, 18 64" stroke-dasharray="2 5" stroke-linecap="round" opacity="0.6" />
     <!-- upper wing -->
     <path d="M116 8 L4 40 L46 50 Z" fill="oklch(var(--paper))" />
     <!-- wing ribs -->

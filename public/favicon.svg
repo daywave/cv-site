@@ -1,12 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2563eb"/>
-      <stop offset="100%" stop-color="#c026d3"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
-  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
-        font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif"
-        font-weight="800" font-size="38" fill="#ffffff" letter-spacing="-2">D.</text>
+  <!-- paper plane mark (simplified PaperPlane.vue, scaled 0.4) · ink #163029 · paper #faf4ec -->
+  <rect width="64" height="64" rx="14" fill="#163029"/>
+  <g fill="none" stroke="#faf4ec" stroke-width="3" stroke-linejoin="round">
+    <path d="M54.4 19.2 L9.6 32 L26.4 36 Z"/>
+    <path d="M54.4 19.2 L26.4 36 L31.2 45.6 Z" fill="#faf4ec" fill-opacity="0.18"/>
+    <path d="M26.4 36 L21.6 40.8 L31.2 45.6"/>
+  </g>
 </svg>
